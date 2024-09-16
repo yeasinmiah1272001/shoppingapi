@@ -11,11 +11,6 @@ const cors = require("cors");
 app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
-
-
-
-
-
 // mongodb
 const uri = `mongodb+srv://shoppingdata:SfIWPHTIgfAuRUxW@cluster0.qlvqjvw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 
@@ -54,7 +49,7 @@ async function run() {
 
 
  app.get("/", (req, res) => {
-   res.send("book-store-running...");
+   res.send("api-running...");
  });
 
  
