@@ -28,6 +28,7 @@ async function run() {
     // Connect the client to the server	(optional starting in v4.7)
     await client.connect();
       const bookCollection = client.db("shoppingdata").collection("shoppingdata");
+      const productCollection = client.db("shoppingdata").collection("products");
     
 
       
@@ -44,6 +45,10 @@ async function run() {
 
    app.get("/shopping", async(req, res) =>{
     const result = await bookCollection.find().toArray();
+    res.send(result)
+   })
+   app.get("/products", async(req, res) =>{
+    const result = await productCollection.find().toArray();
     res.send(result)
    })
 
