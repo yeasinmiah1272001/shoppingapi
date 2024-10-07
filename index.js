@@ -30,6 +30,7 @@ async function run() {
     const bookCollection = client.db("shoppingdata").collection("shoppingdata");
     const productCollection = client.db("shoppingdata").collection("products");
     const spicyCollection = client.db("shoppingdata").collection("spicy");
+    const ecommarce = client.db("shoppingdata").collection("collection");
 
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
@@ -49,6 +50,10 @@ async function run() {
     });
     app.get("/allspicy", async (req, res) => {
       const result = await spicyCollection.find().toArray();
+      res.send(result);
+    });
+    app.get("/collection", async (req, res) => {
+      const result = await ecommarce.find().toArray();
       res.send(result);
     });
 
