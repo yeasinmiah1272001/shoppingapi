@@ -31,6 +31,7 @@ async function run() {
     const productCollection = client.db("shoppingdata").collection("products");
     const spicyCollection = client.db("shoppingdata").collection("spicy");
     const ecommarce = client.db("shoppingdata").collection("collection");
+    const shahinCollection = client.db("shoppingdata").collection("shahin");
 
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
@@ -54,6 +55,10 @@ async function run() {
     });
     app.get("/collection", async (req, res) => {
       const result = await ecommarce.find().toArray();
+      res.send(result);
+    });
+    app.get("/shahin", async (req, res) => {
+      const result = await shahinCollection.find().toArray();
       res.send(result);
     });
 
